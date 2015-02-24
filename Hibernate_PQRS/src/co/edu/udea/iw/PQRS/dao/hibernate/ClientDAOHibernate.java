@@ -8,13 +8,14 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import co.edu.ude.iw.PQRS.dto.Client;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
 import co.edu.udea.iw.PQRS.dao.ClientDAO;
 import co.edu.udea.iw.PQRS.dao.HibernateSessionFactory;
 
-public class ClientDAOHibernate implements ClientDAO {
+public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO {
 
 	public Client insert(Client client) throws IWDaoException {
 		
@@ -22,7 +23,7 @@ public class ClientDAOHibernate implements ClientDAO {
 		Session session = null;
 		
 		try{
-			session = HibernateSessionFactory.getInstancia().getSession();
+			session = getSession();
 			
 			tx = session.beginTransaction();
 			session.save(client);
@@ -43,7 +44,7 @@ public class ClientDAOHibernate implements ClientDAO {
 		Session session = null;
 		
 		try{
-			session = HibernateSessionFactory.getInstancia().getSession();
+			session = getSession();
 			
 			tx = session.beginTransaction();
 			session.update(client);
@@ -64,7 +65,7 @@ public class ClientDAOHibernate implements ClientDAO {
 		Session session = null;
 		
 		try{
-			session = HibernateSessionFactory.getInstancia().getSession();
+			session = getSession();
 			
 			tx = session.beginTransaction();
 			session.update(client);
@@ -86,7 +87,7 @@ public class ClientDAOHibernate implements ClientDAO {
 		List<Client> clients = new ArrayList<Client>();
 		
 		try{
-			session = HibernateSessionFactory.getInstancia().getSession();
+			session = getSession();
 			
 			Criteria criteria = session.createCriteria(Client.class);
 			
@@ -106,7 +107,7 @@ public class ClientDAOHibernate implements ClientDAO {
 		Client client = null;
 		
 		try{
-			Session session = HibernateSessionFactory.getInstancia().getSession();
+			Session session = getSession();
 			
 			Criteria criteria = session.createCriteria(Client.class)
 					.add(Restrictions.eq("idNumber", idNumber))  ;

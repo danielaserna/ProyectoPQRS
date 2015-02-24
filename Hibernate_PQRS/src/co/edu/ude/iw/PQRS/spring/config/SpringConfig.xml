@@ -26,7 +26,8 @@
 				<value>co/edu/udea/iw/PQRS/dao/mapping/ProductType.hbm.xml</value>
 				<value>co/edu/udea/iw/PQRS/dao/mapping/Profile.hbm.xml</value>
 				<value>co/edu/udea/iw/PQRS/dao/mapping/Solicitude.hbm.xml</value>
-				<value>co/edu/udea/iw/PQRS/dao/mapping/SolicitudeType.hbm.xml</value>
+				<value>co/edu/udea/iw/PQRS/dao/mapping/SolicitudeType.hbm.xml
+				</value>
 				<value>co/edu/udea/iw/PQRS/dao/mapping/Sucursal.hbm.xml</value>
 			</list>
 		</property>
@@ -38,12 +39,21 @@
 			</props>
 		</property>
 	</bean>
-	
-	<!-- Bean para que Spring se encargue de realizar las transacciones a la base de datos -->
-	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="dataSource" ref="dataSource"/>
+
+	<!-- Bean para que Spring se encargue de realizar las transacciones a la 
+		base de datos -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="dataSource" ref="dataSource" />
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
+	<bean id="cityDAO" class="co.edu.udea.iw.PQRS.dao.hibernate.CityDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="clientDAO" class="co.edu.udea.iw.PQRS.dao.hibernate.ClientDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 </beans>

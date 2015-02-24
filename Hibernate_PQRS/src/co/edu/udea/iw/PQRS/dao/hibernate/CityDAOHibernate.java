@@ -7,20 +7,20 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import co.edu.ude.iw.PQRS.dto.City;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
 import co.edu.udea.iw.PQRS.dao.*;
 
-public class CityDAOHibernate implements CityDAO {
+public class CityDAOHibernate extends HibernateDaoSupport implements CityDAO {
 
 	public List<City> get() throws IWDaoException {
 
 		List<City> cities = new ArrayList<City>();
 
 		try {
-			Session session = HibernateSessionFactory.getInstancia()
-					.getSession();
+			Session session = getSession();
 
 			Criteria criteria = session.createCriteria(City.class);
 
@@ -38,8 +38,7 @@ public class CityDAOHibernate implements CityDAO {
 		City city = null;
 
 		try {
-			Session session = HibernateSessionFactory.getInstancia()
-					.getSession();
+			Session session = getSession();
 
 			Criteria criteria = session.createCriteria(City.class).add(
 					Restrictions.eq("codigo", code));
