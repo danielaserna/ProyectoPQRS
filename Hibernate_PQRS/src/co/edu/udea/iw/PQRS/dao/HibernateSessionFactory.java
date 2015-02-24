@@ -3,7 +3,7 @@ package co.edu.udea.iw.PQRS.dao;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.classic.Session;
+import org.hibernate.Session;
 
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
 

@@ -5,18 +5,16 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
 
 import co.edu.ude.iw.PQRS.dto.Client;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
-import co.edu.udea.iw.PQRS.dao.HibernateSessionFactory;
 import co.edu.udea.iw.PQRS.dao.ClientDAO;
+import co.edu.udea.iw.PQRS.dao.HibernateSessionFactory;
 
 public class ClientDAOHibernate implements ClientDAO {
-
-	
 
 	public Client insert(Client client) throws IWDaoException {
 		
