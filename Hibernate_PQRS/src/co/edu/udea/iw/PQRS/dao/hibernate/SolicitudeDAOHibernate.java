@@ -10,15 +10,13 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import co.edu.ude.iw.PQRS.dto.Client;
+import co.edu.ude.iw.PQRS.dto.Solicitude;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
-import co.edu.udea.iw.PQRS.dao.ClientDAO;
+import co.edu.udea.iw.PQRS.dao.SolicitudeDAO;
 
+public class SolicitudeDAOHibernate extends HibernateDaoSupport  implements SolicitudeDAO {
 
-public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO {
-
-	public Client insert(Client client) throws IWDaoException {
-		
+	public Solicitude insert(Solicitude solicitude) throws IWDaoException {
 		Transaction tx = null;
 		Session session = null;
 		
@@ -26,7 +24,7 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO
 			session = getSession();
 			
 			tx = session.beginTransaction();
-			session.save(client);
+			session.save(solicitude);
 			tx.commit();
 			
 		}catch(HibernateException e){
@@ -35,11 +33,10 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO
 			session.close();
 		}
 		
-		return client;
+		return solicitude;
 	}
 
-	public Client update(Client client) throws IWDaoException {
-		
+	public Solicitude update(Solicitude solicitude) throws IWDaoException {
 		Transaction tx = null;
 		Session session = null;
 		
@@ -47,7 +44,7 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO
 			session = getSession();
 			
 			tx = session.beginTransaction();
-			session.update(client);
+			session.update(solicitude);
 			tx.commit();
 			
 		}catch(HibernateException e){
@@ -56,10 +53,10 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO
 			session.close();
 		}
 		
-		return client;
+		return solicitude;
 	}
 
-	public Client delete(Client client) throws IWDaoException {
+	public Solicitude delete(Solicitude solicitude) throws IWDaoException {
 		
 		Transaction tx = null;
 		Session session = null;
@@ -68,7 +65,7 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO
 			session = getSession();
 			
 			tx = session.beginTransaction();
-			session.update(client);
+			session.update(solicitude);
 			tx.commit();
 			
 		}catch(HibernateException e){
@@ -80,18 +77,18 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO
 		return null;
 	}
 
-	public List<Client> get() throws IWDaoException {
-		
+	public List<Solicitude> get() throws IWDaoException {
+
 		Session session = null;
 		
-		List<Client> clients = new ArrayList<Client>();
+		List<Solicitude> solicitude = new ArrayList<Solicitude>();
 		
 		try{
 			session = getSession();
 			
-			Criteria criteria = session.createCriteria(Client.class);
+			Criteria criteria = session.createCriteria(Solicitude.class);
 			
-			clients = criteria.list();
+			solicitude = criteria.list();
 			
 		}catch(HibernateException e){
 			throw new IWDaoException(e);
@@ -99,27 +96,27 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO
 			session.close();
 		}
 		
-		return clients;
+		return solicitude;
 	}
 
-	public Client get(Integer idNumber) throws IWDaoException {
+	public Solicitude get(Integer idSolicitude) throws IWDaoException {
 		
-		Client client = null;
+		Solicitude solicitude = null;
 		
 		try{
 			Session session = getSession();
 			
-			Criteria criteria = session.createCriteria(Client.class)
-					.add(Restrictions.eq("idNumber", idNumber))  ;
+			Criteria criteria = session.createCriteria(Solicitude.class)
+					.add(Restrictions.eq("idSolicitud", idSolicitude))  ;
 			
-			client = (Client) criteria.uniqueResult();
+			solicitude = (Solicitude) criteria.uniqueResult();
 			
 			
 		}catch(HibernateException e){
 			throw new IWDaoException(e);
 		}
 		
-		return client;
+		return solicitude;
 	}
 
 }
