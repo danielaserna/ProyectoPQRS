@@ -14,111 +14,110 @@ import co.edu.ude.iw.PQRS.dto.Client;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
 import co.edu.udea.iw.PQRS.dao.ClientDAO;
 
-
-public class ClientDAOHibernate extends HibernateDaoSupport implements ClientDAO {
+public class ClientDAOHibernate extends HibernateDaoSupport implements
+		ClientDAO {
 
 	public Client insert(Client client) throws IWDaoException {
-		
+
 		Transaction tx = null;
 		Session session = null;
-		
-		try{
+
+		try {
 			session = getSession();
-			
+
 			tx = session.beginTransaction();
 			session.save(client);
 			tx.commit();
-			
-		}catch(HibernateException e){
+
+		} catch (HibernateException e) {
 			throw new IWDaoException(e);
-		}finally{
+		} finally {
 			session.close();
 		}
-		
+
 		return client;
 	}
 
 	public Client update(Client client) throws IWDaoException {
-		
+
 		Transaction tx = null;
 		Session session = null;
-		
-		try{
+
+		try {
 			session = getSession();
-			
+
 			tx = session.beginTransaction();
 			session.update(client);
 			tx.commit();
-			
-		}catch(HibernateException e){
+
+		} catch (HibernateException e) {
 			throw new IWDaoException(e);
-		}finally{
+		} finally {
 			session.close();
 		}
-		
+
 		return client;
 	}
 
 	public Client delete(Client client) throws IWDaoException {
-		
+
 		Transaction tx = null;
 		Session session = null;
-		
-		try{
+
+		try {
 			session = getSession();
-			
+
 			tx = session.beginTransaction();
 			session.update(client);
 			tx.commit();
-			
-		}catch(HibernateException e){
+
+		} catch (HibernateException e) {
 			throw new IWDaoException(e);
-		}finally{
+		} finally {
 			session.close();
 		}
-		
+
 		return null;
 	}
 
 	public List<Client> get() throws IWDaoException {
-		
+
 		Session session = null;
-		
+
 		List<Client> clients = new ArrayList<Client>();
-		
-		try{
+
+		try {
 			session = getSession();
-			
+
 			Criteria criteria = session.createCriteria(Client.class);
-			
+
 			clients = criteria.list();
-			
-		}catch(HibernateException e){
+
+		} catch (HibernateException e) {
 			throw new IWDaoException(e);
-		}finally{
+		} finally {
 			session.close();
 		}
-		
+
 		return clients;
 	}
 
 	public Client get(Integer idNumber) throws IWDaoException {
-		
+
 		Client client = null;
-		
-		try{
+
+		try {
 			Session session = getSession();
-			
-			Criteria criteria = session.createCriteria(Client.class)
-					.add(Restrictions.eq("idNumber", idNumber))  ;
-			
+
+			Criteria criteria = session.createCriteria(Client.class).add(
+					Restrictions.eq("idNumber", idNumber));
+
 			client = (Client) criteria.uniqueResult();
-			
-			
-		}catch(HibernateException e){
+
+		} catch (HibernateException e) {
 			throw new IWDaoException(e);
 		}
-		
+
 		return client;
 	}
 

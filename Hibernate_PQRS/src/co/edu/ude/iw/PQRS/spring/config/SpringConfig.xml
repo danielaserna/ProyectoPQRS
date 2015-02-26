@@ -48,6 +48,7 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
+	<!-- Beans para los DAO -->
 	<bean id="cityDAO" class="co.edu.udea.iw.PQRS.dao.hibernate.CityDAOHibernate">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -56,4 +57,35 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<bean id="productDAO" class="co.edu.udea.iw.PQRS.dao.hibernate.ProductDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="productTypeDAO"
+		class="co.edu.udea.iw.PQRS.dao.hibernate.ProductTypeDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="profileDAO" class="co.edu.udea.iw.PQRS.dao.hibernate.ProfileDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="solicitudeDAO"
+		class="co.edu.udea.iw.PQRS.dao.hibernate.SolicitudeDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="solicitudeTypeDAO"
+		class="co.edu.udea.iw.PQRS.dao.hibernate.SolicitudeTypeDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="sucursalDAO" class="co.edu.udea.iw.PQRS.dao.hibernate.SucursalDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="clientService" class="co.edu.udea.iw.PQRS.services.impl.ClientService">
+		<property name="clientDAO" ref="clientDAO" />
+
+	</bean>
 </beans>
