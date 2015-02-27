@@ -12,16 +12,16 @@
             <column name="DESCRIPTION" not-null="true" length="200"/>
         </property>
         <many-to-one name="solicitudeType" class="co.edu.ude.iw.PQRS.dto.SolicitudeType" fetch="join">
-            <column name="ID_SOLICITUDE_TYPE" not-null="true" length="30"/>
+            <column name="SOLICITUDE_TYPE_ID_SOLICITUDE_TYPE" not-null="true" length="30"/>
         </many-to-one>
         <many-to-one name="idProduct" class="co.edu.ude.iw.PQRS.dto.Product" fetch="join">
-            <column name="ID_PRODUCT" not-null="true" precision="12"/>
+            <column name="PRODUCT_ID_PRODUCT" not-null="true" precision="12"/>
         </many-to-one>
         <many-to-one name="idSucursal" class="co.edu.ude.iw.PQRS.dto.Sucursal" fetch="join">
-            <column name="ID_SUCURSAL" not-null="true" precision="12"/>
+            <column name="SUCURSAL_ID_SUCURSAL" not-null="true" precision="12"/>
         </many-to-one>
         <many-to-one name="idNumber" class="co.edu.ude.iw.PQRS.dto.Client" fetch="join">
-            <column name="ID_NUMBER" not-null="true" precision="15"/>
+            <column name="CLIENT_ID_NUMBER" not-null="true" precision="15"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

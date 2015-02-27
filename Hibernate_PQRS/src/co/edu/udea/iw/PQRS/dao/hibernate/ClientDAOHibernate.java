@@ -23,7 +23,7 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements
 		Session session = null;
 
 		try {
-			session = getSession();
+			session = this.getSession();
 
 			tx = session.beginTransaction();
 			session.save(client);
@@ -44,7 +44,7 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements
 		Session session = null;
 
 		try {
-			session = getSession();
+			session = this.getSession();
 
 			tx = session.beginTransaction();
 			session.update(client);
@@ -65,7 +65,7 @@ public class ClientDAOHibernate extends HibernateDaoSupport implements
 		Session session = null;
 
 		try {
-			session = getSession();
+			session = this.getSession();
 
 			tx = session.beginTransaction();
 			session.update(client);

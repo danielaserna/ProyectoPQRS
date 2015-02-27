@@ -12,7 +12,7 @@
             <column name="DESCRIPTION" not-null="false" length="45" />
         </property>
         <many-to-one name="type" class="co.edu.ude.iw.PQRS.dto.ProductType" fetch="join">
-            <column name="TYPE" not-null="true" length="30"/>
+            <column name="PRODUCT_TYPE_TYPE" not-null="true" length="30"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

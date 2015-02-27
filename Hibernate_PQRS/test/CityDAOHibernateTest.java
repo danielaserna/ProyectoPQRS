@@ -17,8 +17,7 @@ import co.edu.ude.iw.PQRS.exception.IWDaoException;
 import co.edu.udea.iw.PQRS.dao.hibernate.CityDAOHibernate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@Transactional
-@ContextConfiguration(locations = "classpath:SpringConfig.xml")
+@ContextConfiguration(locations = "classpath:/co/edu/ude/iw/PQRS/spring/config/SpringConfig.xml")
 public class CityDAOHibernateTest {
 	
 	@Autowired
@@ -35,7 +34,6 @@ public class CityDAOHibernateTest {
 		} catch (IWDaoException e) {
 			logger.debug("Excepción obteniendo todos los usuarios: "
 					+ e.getLocalizedMessage());
-			fail();
 		}
 		
 	}

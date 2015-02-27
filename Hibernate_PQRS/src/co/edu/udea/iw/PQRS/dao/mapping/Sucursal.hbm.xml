@@ -12,7 +12,7 @@
             <column name="NOMBRE" not-null="true" length="45" />
         </property>
         <many-to-one name="code" class="co.edu.ude.iw.PQRS.dto.City" fetch="join">
-            <column name="CODE" not-null="true" precision="12"/>
+            <column name="CITY_CODE" not-null="true" precision="12"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

@@ -24,7 +24,7 @@ public class ClientService implements IClientService {
 			String phoneNumber, String profile) throws IWDaoException,
 			IWServiceException {
 
-		Client client = null;
+		Client client = new Client();
 		if (idNumber == null && "".equals(idNumber.toString())) {
 			throw new IWServiceException(
 					"La identificación del cliente no puede ser nula o vacia");

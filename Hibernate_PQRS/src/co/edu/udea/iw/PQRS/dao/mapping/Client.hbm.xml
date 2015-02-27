@@ -24,7 +24,7 @@
             <column name="CELLPHONE_NUMBER" not-null="false" length="45"/>
         </property>
         <many-to-one name="profile" class="co.edu.ude.iw.PQRS.dto.Profile" fetch="join">
-            <column name="PROFILE"  not-null="true" length="45"/>
+            <column name="PROFILE_PROFILE"  not-null="true" length="45"/>
         </many-to-one>
     </class>
 </hibernate-mapping>
