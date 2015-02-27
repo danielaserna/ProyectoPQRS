@@ -1,7 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
 import co.edu.ude.iw.PQRS.exception.IWServiceException;
-import co.edu.udea.iw.PQRS.dao.SolicitudeDAO;
 import co.edu.udea.iw.PQRS.services.ISolicitudeService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,7 +26,5 @@ public class SolicitudeServiceTest {
 		solicitudeService.insertSolicitude(
 				"Me salio muy malo ese producto, que cosita con ustedes",
 				"001", "queja", "1", "123456", "333");
-
 	}
-
 }

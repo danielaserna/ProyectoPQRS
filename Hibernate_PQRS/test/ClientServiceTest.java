@@ -23,7 +23,6 @@ public class ClientServiceTest {
 
 	@Autowired
 	private ClientService clientService;
-
 	private static Logger logger = Logger.getLogger(ClientDAOHibernate.class);
 
 	public void testSaveClient() throws IWDaoException, IWServiceException {
@@ -31,10 +30,9 @@ public class ClientServiceTest {
 		clientService.saveClient("Yefry", "Calderon", "3143423",
 				"alexis@gmail.com", idnumber, "2341221", "cliente");
 	}
-	
+
 	@Test
-	public void testFindUserByLogin() throws IWDaoException, IWServiceException{
-		
+	public void testFindUserByLogin() throws IWDaoException, IWServiceException {
 		Client client = clientService.findUserByLogin("123456");
 		System.out.println("Bienvenido " + client.getFullName());
 		assertNotNull(client);
