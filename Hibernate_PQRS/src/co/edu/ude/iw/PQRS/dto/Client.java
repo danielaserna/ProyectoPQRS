@@ -1,12 +1,14 @@
 package co.edu.ude.iw.PQRS.dto;
 
+import java.io.Serializable;
+
 /**
  * Clase dto para los datos del cliente
  * 
  * @author Daniela
  *
  */
-public class Client {
+public class Client implements Serializable{
 
 	/**
 	 * Identificación del cliente

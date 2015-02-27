@@ -1,11 +1,13 @@
 package co.edu.ude.iw.PQRS.dto;
 
+import java.io.Serializable;
+
 /**
  * Clase dto para los datos de los productos
  * @author Daniela
  *
  */
-public class Product {
+public class Product implements Serializable{
 
 	/**
 	 * Identificación del producto

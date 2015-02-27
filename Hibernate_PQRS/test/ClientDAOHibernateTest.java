@@ -33,14 +33,14 @@ public class ClientDAOHibernateTest {
 		Client client = new Client();
 		
 		try {
-			client.setFullName("Yefry Alexis");
+			client.setFullName("Alexis");
 			client.setLastName("Calderon Yepes");
 			client.setCellphoneNumber("33333");
 			client.setEmail("alexis@gmail.com");
 			client.setIdNumber(1234);
-			client.setPhoneNumber("456764");
+			client.setPhoneNumber("45676455");
 			Profile profile = new Profile();
-			profile.setProfile("cliente");
+			profile.setProfile("gerenteDeCuentasCorporativas");
 			profile.setDescription("perfil administrador");
 			client.setProfile(profile);
 			

@@ -19,6 +19,7 @@ public class ClientService implements IClientService {
 		this.clientDAO = clientDAO;
 	}
 
+	@SuppressWarnings("null")
 	public void saveClient(String fullname, String lastName,
 			String cellphoneNumber, String email, Integer idNumber,
 			String phoneNumber, String profile) throws IWDaoException,
@@ -58,6 +59,21 @@ public class ClientService implements IClientService {
 
 		clientDAO.insert(client);
 
+	}
+
+	public Client findUserByLogin(String idNumber) throws IWDaoException,
+			IWServiceException {
+
+		Client client = null;
+
+		if (idNumber == null && "".equals(idNumber)) {
+			throw new IWServiceException(
+					"La identificacion del usuario no puede ser vacia o nula o no se encontro el cliente");
+		}
+
+		client = clientDAO.get(Integer.parseInt(idNumber));
+
+		return client;
 	}
 
 }

@@ -1,11 +1,13 @@
 package co.edu.ude.iw.PQRS.dto;
 
+import java.io.Serializable;
+
 /**
  * Clase dto para los datos del Tipo de Solicitud
  * @author Daniela
  *
  */
-public class SolicitudeType {
+public class SolicitudeType implements Serializable{
  
 	/**
 	 * Identificación del tipo de solictud

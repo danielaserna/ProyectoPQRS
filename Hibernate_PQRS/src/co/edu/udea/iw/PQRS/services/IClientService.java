@@ -1,5 +1,6 @@
 package co.edu.udea.iw.PQRS.services;
 
+import co.edu.ude.iw.PQRS.dto.Client;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
 import co.edu.ude.iw.PQRS.exception.IWServiceException;
 
@@ -29,5 +30,11 @@ public interface IClientService {
 			String cellphoneNumber, String email, Integer idNumber,
 			String phoneNumber, String profile) throws IWDaoException,
 			IWServiceException;
+	/**
+	 * 
+	 * @param idNumber
+	 * @return
+	 */
+	public Client findUserByLogin(String idNumber) throws IWDaoException, IWServiceException;
 
 }

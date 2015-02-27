@@ -1,11 +1,13 @@
 package co.edu.ude.iw.PQRS.dto;
 
+import java.io.Serializable;
+
 /**
  * Clase dto para los datos de las sucursales
  * @author Daniela
  *
  */
-public class Sucursal {
+public class Sucursal implements Serializable{
 
 	/**
 	 * Identificador de la sucursal

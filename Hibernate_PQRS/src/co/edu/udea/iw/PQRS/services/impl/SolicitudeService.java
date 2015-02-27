@@ -7,18 +7,26 @@ import co.edu.ude.iw.PQRS.dto.SolicitudeType;
 import co.edu.ude.iw.PQRS.dto.Sucursal;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
 import co.edu.ude.iw.PQRS.exception.IWServiceException;
-import co.edu.udea.iw.PQRS.dao.hibernate.SolicitudeDAOHibernate;
+import co.edu.udea.iw.PQRS.dao.SolicitudeDAO;
 import co.edu.udea.iw.PQRS.services.ISolicitudeService;
 
 public class SolicitudeService implements ISolicitudeService {
 
-	private SolicitudeDAOHibernate solicitudeDAOHibernate;
+	private SolicitudeDAO solicitudeDAOHibernate;
+
+	public SolicitudeDAO getSolicitudeDAOHibernate() {
+		return solicitudeDAOHibernate;
+	}
+
+	public void setSolicitudeDAOHibernate(SolicitudeDAO solicitudeDAOHibernate) {
+		this.solicitudeDAOHibernate = solicitudeDAOHibernate;
+	}
 
 	public void insertSolicitude(String description, String idSolicitude,
 			String solicitudeType, String idSucursal, String idNumber,
 			String idProduct) throws IWDaoException, IWServiceException {
 
-		Solicitude solicitude = null;
+		Solicitude solicitude = new Solicitude();
 
 		if (description == null && "".equals(description)) {
 			throw new IWServiceException(
@@ -38,24 +46,24 @@ public class SolicitudeService implements ISolicitudeService {
 		}
 
 		solicitude.setDescription(description);
-		
+
 		Client client = new Client();
 		client.setIdNumber(Integer.parseInt(idNumber));
-		
+
 		Product product = new Product();
 		product.setIdProduct(Integer.parseInt(idProduct));
 		solicitude.setIdNumber(client);
 		solicitude.setIdProduct(product);
 		solicitude.setIdSolicitude(Integer.parseInt(idSolicitude));
-		
+
 		SolicitudeType typeSolicitude = new SolicitudeType();
 		typeSolicitude.setIdSolicitudType(solicitudeType);
-		
+
 		Sucursal sucursal = new Sucursal();
 		sucursal.setIdSucursal(Integer.parseInt(idSucursal));
-		
+
 		solicitude.setIdSucursal(sucursal);
-		
+
 		solicitudeDAOHibernate.insert(solicitude);
 
 	}

@@ -1,11 +1,13 @@
 package co.edu.ude.iw.PQRS.dto;
 
+import java.io.Serializable;
+
 /**
  * Clase dto para los datos de las solicitudes
  * @author Daniela
  *
  */
-public class Solicitude {
+public class Solicitude implements Serializable{
 
 	/**
 	 * Identificador de la solicitud

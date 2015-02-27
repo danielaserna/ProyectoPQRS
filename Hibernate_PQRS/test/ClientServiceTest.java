@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import co.edu.ude.iw.PQRS.dto.Client;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
 import co.edu.ude.iw.PQRS.exception.IWServiceException;
 import co.edu.udea.iw.PQRS.dao.hibernate.ClientDAOHibernate;
@@ -25,11 +26,18 @@ public class ClientServiceTest {
 
 	private static Logger logger = Logger.getLogger(ClientDAOHibernate.class);
 
-	@Test
 	public void testSaveClient() throws IWDaoException, IWServiceException {
-		Integer idnumber = new Integer(12345);
+		Integer idnumber = new Integer(123456);
 		clientService.saveClient("Yefry", "Calderon", "3143423",
 				"alexis@gmail.com", idnumber, "2341221", "cliente");
+	}
+	
+	@Test
+	public void testFindUserByLogin() throws IWDaoException, IWServiceException{
+		
+		Client client = clientService.findUserByLogin("123456");
+		System.out.println("Bienvenido " + client.getFullName());
+		assertNotNull(client);
 	}
 
 }

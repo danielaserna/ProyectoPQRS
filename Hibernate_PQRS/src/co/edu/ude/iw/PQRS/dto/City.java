@@ -1,11 +1,13 @@
 package co.edu.ude.iw.PQRS.dto;
 
+import java.io.Serializable;
+
 /**
  * Clase dto para los datos de las ciudades
  * @author Daniela
  *
  */
-public class City {
+public class City implements Serializable{
 
 	/**
 	 * Codigo de la ciudad
