@@ -18,7 +18,7 @@ import co.edu.udea.iw.PQRS.dao.hibernate.CityDAOHibernate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
-@ContextConfiguration(locations = "classpath:SpringConfig.xml")
+@ContextConfiguration(locations = "classpath:co/edu/ude/iw/PQRS/SpringConfig.xml")
 public class CityDAOHibernateTest {
 	
 	@Autowired
