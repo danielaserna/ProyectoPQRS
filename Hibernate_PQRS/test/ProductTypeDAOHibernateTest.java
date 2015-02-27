@@ -1,6 +1,7 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -11,10 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.edu.ude.iw.PQRS.dto.Product;
 import co.edu.ude.iw.PQRS.dto.ProductType;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
-import co.edu.udea.iw.PQRS.dao.hibernate.ProductDAOHibernate;
 import co.edu.udea.iw.PQRS.dao.hibernate.ProductTypeDAOHibernate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,29 +23,23 @@ public class ProductTypeDAOHibernateTest {
 
 	@Autowired
 	private ProductTypeDAOHibernate productTypeHibernate;
-	
+
 	@Test
 	public void testGet() {
 		List<ProductType> productTypeList = null;
-		
+
 		try {
 			productTypeList = productTypeHibernate.get();
-			
-			for(ProductType product : productTypeList){
+
+			for (ProductType product : productTypeList) {
 				System.out.println(product.getType());
 			}
-			
+
 			assertTrue(true);
-			
+
 		} catch (IWDaoException e) {
 			// TODO: handle exception
 			fail(e.getMessage());
 		}
 	}
-
-	@Test
-	public void testObtener() {
-		fail("Not yet implemented");
-	}
-
 }

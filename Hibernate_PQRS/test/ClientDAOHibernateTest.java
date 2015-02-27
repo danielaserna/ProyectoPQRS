@@ -1,6 +1,7 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -15,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import co.edu.ude.iw.PQRS.dto.Client;
 import co.edu.ude.iw.PQRS.dto.Profile;
 import co.edu.ude.iw.PQRS.exception.IWDaoException;
-import co.edu.udea.iw.PQRS.dao.hibernate.CityDAOHibernate;
 import co.edu.udea.iw.PQRS.dao.hibernate.ClientDAOHibernate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,13 +25,12 @@ public class ClientDAOHibernateTest {
 
 	@Autowired
 	private ClientDAOHibernate clientDaoHibernate;
-
 	private static Logger logger = Logger.getLogger(ClientDAOHibernate.class);
+
 	@Test
 	public void testInsert() {
-		
 		Client client = new Client();
-		
+
 		try {
 			client.setFullName("Alexis");
 			client.setLastName("Calderon Yepes");
@@ -43,13 +42,13 @@ public class ClientDAOHibernateTest {
 			profile.setProfile("gerenteDeCuentasCorporativas");
 			profile.setDescription("perfil administrador");
 			client.setProfile(profile);
-			
+
 			clientDaoHibernate.insert(client);
 			assertTrue(true);
 		} catch (IWDaoException e) {
 			logger.debug("Excepción obteniendo todos los usuarios: "
 					+ e.getLocalizedMessage());
-			//fail(e.getMessage());
+			// fail(e.getMessage());
 		}
 	}
 
@@ -65,16 +64,16 @@ public class ClientDAOHibernateTest {
 
 	@Test
 	public void testGet() {
-		
+
 		List<Client> client = null;
-		
+
 		try {
 			client = clientDaoHibernate.get();
-			
-			for(Client client2 : client){
+
+			for (Client client2 : client) {
 				System.out.println(client2.getFullName());
 			}
-			
+
 			assertTrue(true);
 		} catch (IWDaoException e) {
 			logger.debug("Excepción obteniendo todos los usuarios: "

@@ -4,21 +4,25 @@ import java.io.Serializable;
 
 /**
  * Clase dto para los datos de las ciudades
- * @author Daniela
- *
+ * 
+ * @author Daniela Serna Buitrago
+ * @author Yefry Alexis Calderon Yepes
+ * 
  */
-public class City implements Serializable{
+public class City implements Serializable {
+
+	private static final long serialVersionUID = 6217642515784020664L;
 
 	/**
 	 * Codigo de la ciudad
 	 */
 	private Integer code;
-	
+
 	/**
 	 * Nombre de la ciudad
 	 */
 	private String name;
-	
+
 	/**
 	 * Codigo de area de la ciudad
 	 */
@@ -47,6 +51,5 @@ public class City implements Serializable{
 	public void setAreaCode(String areaCode) {
 		this.areaCode = areaCode;
 	}
-	
-	
+
 }

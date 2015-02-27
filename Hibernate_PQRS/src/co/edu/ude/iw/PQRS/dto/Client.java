@@ -5,10 +5,13 @@ import java.io.Serializable;
 /**
  * Clase dto para los datos del cliente
  * 
- * @author Daniela
- *
+ * @author Daniela Serna Buitrago
+ * @author Yefry Alexis Calderon Yepes
+ * 
  */
-public class Client implements Serializable{
+public class Client implements Serializable {
+
+	private static final long serialVersionUID = 4098723666223954696L;
 
 	/**
 	 * Identificación del cliente

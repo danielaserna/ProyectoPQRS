@@ -4,21 +4,25 @@ import java.io.Serializable;
 
 /**
  * Clase dto para los datos de las sucursales
- * @author Daniela
- *
+ * 
+ * @author Daniela Serna Buitrago
+ * @author Yefry Alexis Calderon Yepes
+ * 
  */
-public class Sucursal implements Serializable{
+public class Sucursal implements Serializable {
+
+	private static final long serialVersionUID = 3126750689288922532L;
 
 	/**
 	 * Identificador de la sucursal
 	 */
 	private Integer idSucursal;
-	
+
 	/**
 	 * Nombre de la sucursal
 	 */
 	private String nombre;
-	
+
 	/**
 	 * Codigo de la ciudad donde esta ubicada la sucursal
 	 */
@@ -47,6 +51,5 @@ public class Sucursal implements Serializable{
 	public void setCode(City code) {
 		this.code = code;
 	}
-	
-	
+
 }

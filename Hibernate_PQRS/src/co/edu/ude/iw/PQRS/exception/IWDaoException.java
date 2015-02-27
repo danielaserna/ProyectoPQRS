@@ -1,6 +1,14 @@
 package co.edu.ude.iw.PQRS.exception;
 
+/**
+ * 
+ * @author Daniela Serna Buitrago
+ * @author Yefry Alexis Calderon Yepes
+ * 
+ */
 public class IWDaoException extends Exception {
+
+	private static final long serialVersionUID = 7879404629534170838L;
 
 	public IWDaoException() {
 		// TODO Auto-generated constructor stub

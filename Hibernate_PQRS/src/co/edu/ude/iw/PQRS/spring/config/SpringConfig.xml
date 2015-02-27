@@ -87,8 +87,8 @@
 	<bean id="clientService" class="co.edu.udea.iw.PQRS.services.impl.ClientService">
 		<property name="clientDAO" ref="clientDAO" />
 	</bean>
-	
+
 	<bean id="solicitudeService" class="co.edu.udea.iw.PQRS.services.impl.SolicitudeService">
-		<property name="solicitudeDAOHibernate" ref="solicitudeDAO"/>
+		<property name="solicitudeDAOHibernate" ref="solicitudeDAO" />
 	</bean>
 </beans>

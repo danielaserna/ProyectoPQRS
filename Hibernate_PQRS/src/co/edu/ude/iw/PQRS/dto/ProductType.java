@@ -4,11 +4,15 @@ import java.io.Serializable;
 
 /**
  * Clase dto para los datos del tipo de producto
- * @author Daniela
- *
+ * 
+ * @author Daniela Serna Buitrago
+ * @author Yefry Alexis Calderon Yepes
+ * 
  */
-public class ProductType implements Serializable{
-	
+public class ProductType implements Serializable {
+
+	private static final long serialVersionUID = -8655161871517817922L;
+
 	/**
 	 * Tipo de producto
 	 */
@@ -21,7 +25,5 @@ public class ProductType implements Serializable{
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	
 
 }

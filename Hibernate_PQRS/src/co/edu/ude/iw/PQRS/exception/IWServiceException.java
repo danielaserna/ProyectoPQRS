@@ -1,6 +1,14 @@
 package co.edu.ude.iw.PQRS.exception;
 
+/**
+ * 
+ * @author Daniela Serna Buitrago
+ * @author Yefry Alexis Calderon Yepes
+ * 
+ */
 public class IWServiceException extends Exception {
+
+	private static final long serialVersionUID = -2118535128880893327L;
 
 	public IWServiceException() {
 		super();
@@ -28,5 +36,4 @@ public class IWServiceException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 }
